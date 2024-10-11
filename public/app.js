@@ -156,8 +156,7 @@ async function loadPasswords() {
     passwords.forEach(password => {
         const passwordItem = document.createElement('div');
         passwordItem.innerHTML = `
-          <strong>URL:</strong> ${password.url} 
-          <br> 
+          <div class="text-center"><strong>URL:</strong> ${password.url}</div> 
           <button class="view-password btn btn-primary" data-id="${password._id}">Ver Senha</button>
           <button class="delete-password btn btn-primary" data-id="${password._id}">Excluir</button>
         `;
@@ -236,8 +235,6 @@ function showPasswordModal(passwordId) {
         }
     };
 }
-
-  
 
 async function deletePassword(passwordId) {
     if (!confirm('Você tem certeza que deseja excluir esta senha?')) return;

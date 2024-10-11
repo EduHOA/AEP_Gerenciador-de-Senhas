@@ -24,7 +24,7 @@ const User = mongoose.model('User', new mongoose.Schema({
 }));
 
 const Password = mongoose.model('Password', new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Relacionado ao usuário
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
   url: { type: String, required: true },
   encryptedPassword: { type: String, required: true },
 }));
