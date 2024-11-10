@@ -20,6 +20,7 @@ if (loginForm) {
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+    
 
     const loading = document.getElementById('loading');
     loading.style.display = 'none'; 
@@ -69,6 +70,18 @@ if (registerForm) {
 
     const successCard = document.querySelector('.success-card');
     const loadingText = document.querySelector('.loading-text');
+
+    document.getElementById('register-password').addEventListener('input', function(event) {
+      this.value = this.value.replace(/\s/g, '');
+  });
+
+  document.querySelector('form').addEventListener('submit', function(event) {
+      const password = document.getElementById('register-password').value;
+      if (/\s/.test(password)) {
+          event.preventDefault();  // Impede o envio do formulário
+          alert('A senha não pode conter espaços.');
+      }
+  });
 
     try {
       const response = await fetch('/register', {
